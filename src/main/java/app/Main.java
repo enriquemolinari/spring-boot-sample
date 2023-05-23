@@ -1,13 +1,13 @@
-package unrn.springboot.sample;
+package app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SampleApplication {
+public class Main {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SampleApplication.class, args);
+		SpringApplication.run(Main.class, args);
 	}
 
 }

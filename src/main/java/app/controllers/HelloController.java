@@ -1,6 +1,7 @@
-package unrn.springboot.sample.controllers;
+package app.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,5 +17,10 @@ public class HelloController {
   @GetMapping(path = "/hello2")
   public String hello2() {
     return "hola mundo 2!";
+  }
+  
+  @GetMapping(path = "/path/{name}")
+  public String helloPath(@PathVariable String name) {
+    return "hola: " + name;
   }
 }
