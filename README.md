@@ -18,6 +18,9 @@ Este es un proyecto de ejemplo de SpringBoot. Fue creado de la siguiente forma:
 - Path parámeters: @GetMapping(path = "/path/{name}") y declara name como parametro: @PathVariable String name.
 - @PostMapping, como parametro del método usar @RequestBody UnRecord nombreRecord
 
+## Exceptions
+- Si quiero generar un handler generico para todos mis métodos de controller revisar la clase MyResponseEntityExceptionHandler.
+
 ## Services
 
 - @Component para anotar las clases que queremos que Spring cree las instancias (1 sola) y las injecte donde haga falta.

@@ -14,6 +14,12 @@ public class UserController {
    public UserController(UserDao users) {
      this.users = users;
    }
+
+   @GetMapping("/users2")
+   public List<UserRecord> users2() {
+     throw new RuntimeException("This is to test the global exception handler");
+   }
+
    
    @GetMapping("/users")
    public List<UserRecord> users() {
@@ -24,4 +30,5 @@ public class UserController {
    public void newUser(@RequestBody UserRequest user) {
      this.users.createUser(user.name(), user.birthdate()); 
    }
+
 }
