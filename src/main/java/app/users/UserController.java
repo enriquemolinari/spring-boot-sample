@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
 
 @RestController
 public class UserController {
@@ -27,7 +28,7 @@ public class UserController {
    }
   
    @PostMapping("/users")
-   public void newUser(@RequestBody UserRequest user) {
+   public void newUser(@Valid @RequestBody UserRequest user) {
      this.users.createUser(user.name(), user.birthdate()); 
    }
 
