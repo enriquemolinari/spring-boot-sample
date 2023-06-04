@@ -34,3 +34,8 @@ Este es un proyecto de ejemplo de SpringBoot. Fue creado de la siguiente forma:
 
 ## Logging
 - En application.properties, agregar logging.level.org.springframework = debug (default es info)
+
+## Configuration
+- En lugar de usar la configuración de beans con un archivo xml, es posible mediante la anotación **@Configuration** customizar la inyección de beans mediante código Java. En una aplicación SpringBoot, spring escanea buscando clases anotadas con @Component (o similar), para crear beans e inyectarlos donde crea conveniente. Pero lo hace desde el paquete donde se encuentre el método *main* y sus subpaquetes. Para agregar más paquetes necesitamos usar la anotación **@ComponentScan**, la cual recibe una colección de paquetes para escanear y buscar beans para intanciar.
+- Utilizando **@ComponentScan** *includeFilters* podemos incorporar el escaneo de beans usando nuestras propias anotaciones u otros criterios.
+- Tambien es posible extender de *BeanPostProcessor* para meterme dentro de la instanciacion de beans que hace spring y retornar otra cosa, por ejemplo, un Bean decorado. 
