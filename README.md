@@ -34,3 +34,19 @@ Este es un proyecto de ejemplo de SpringBoot. Fue creado de la siguiente forma:
 
 ## Logging
 - En application.properties, agregar logging.level.org.springframework = debug (default es info)
+
+# Swagger
+- Incluyendo la siguiente dependencia, tenemos Swagger UI automaticamente en http://localhost:8080/swagger-ui/index.html.
+```
+<dependency>
+  <groupId>org.springdoc</groupId>
+  <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+  <version>2.0.0</version>
+</dependency>
+```
+
+# H2
+- http://localhost:8080/h2-console/
+- Si ponemos en src/main/resources un archivo llamado data.sql, podemos agregar datos a la BD. 
+- spring.jpa.defer-datasource-initialization = true es necesario porque sino quiere ejecutar el data.sql antes que la BD se haya creado.
+
