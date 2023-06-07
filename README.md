@@ -49,6 +49,20 @@ Este es un proyecto de ejemplo de SpringBoot. Fue creado de la siguiente forma:
 - http://localhost:8080/h2-console/
 - Si ponemos en src/main/resources un archivo llamado data.sql, podemos agregar datos a la BD. 
 - spring.jpa.defer-datasource-initialization = true es necesario porque sino quiere ejecutar el data.sql antes que la BD se haya creado.
+- spring.jpa.show-sql=true
+
+# Repositories
+- Siempre tienen que ser interfaces que extienden de JpaRepository<Entity, Type of ID>.
+- Page & Sort: Hay que pasarle al findAll una instancia de PageRequest y Sort que define de que forma queremos ordenar. Ver UserController.usersJpaPagingAndSort()
+- Ademas del CRUD que viene gratis, se pueden construir métodos donde el nombre del método define el criterio de filtros y sort, por ejemplo:
+```
+List<User> findByName(String name);   //filtra por nombre
+
+List<User> findByNameAndBirthDateOrderByName(String name, LocalDate birthDate); //filtra por nombre, fecha de nacimiento y ordena. Los nombres deben coincidir con lo declarado en la entidad.
+  
+@Query("SELECT u FROM users_detail u WHERE u.name LIKE %:name%")
+List<User> findByNameLike(String name);  // Si quiero algo custom uso @Query
+```
 
 ## Configuration
 - En lugar de usar la configuración de beans con un archivo xml, es posible mediante la anotación **@Configuration** customizar la inyección de beans mediante código Java. En una aplicación SpringBoot, spring escanea buscando clases anotadas con @Component (o similar), para crear beans e inyectarlos donde crea conveniente. Pero lo hace desde el paquete donde se encuentre el método *main* y sus subpaquetes. Para agregar más paquetes necesitamos usar la anotación **@ComponentScan**, la cual recibe una colección de paquetes para escanear y buscar beans para intanciar.
