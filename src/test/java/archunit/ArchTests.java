@@ -10,7 +10,7 @@ import com.tngtech.archunit.core.importer.ClassFileImporter;
 public class ArchTests {
 
 	@Test
-	// just an example
+	// just an example, does not imply any structure in this codebase
 	public void controllersShouldOnlyDependOnRepositories() {
 		JavaClasses importedClasses = new ClassFileImporter()
 				.importPackages("..app..", "port");
