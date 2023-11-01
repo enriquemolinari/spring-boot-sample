@@ -27,10 +27,10 @@ Este es un proyecto de ejemplo de SpringBoot. Fue creado de la siguiente forma:
 ## Exceptions
 - Si quiero generar un handler generico para todos mis métodos de controller revisar la clase MyResponseEntityExceptionHandler.
 
-## Services
+## Dependency Injection
 
-- @Component para anotar las clases que queremos que Spring cree las instancias (1 sola) y las injecte donde haga falta.
-- @Bean se utiliza para anotar métodos de intancias de clases third-party, y poder inyectarlas en nuestras clases.
+- @Component para anotar las clases que queremos que Spring cree las instancias (1 sola) y las injecte donde haga falta. Para que Spring injecte, es necesario crear el constructor (como debe ser).
+- @Bean se utiliza para anotar métodos de intancias de clases third-party, y poder inyectarlas en nuestras clases. O clases nuestras pero que para construirlas se requiere de otras, o sea la construccion es mas compleja.
 
 ## Logging
 - En application.properties, agregar logging.level.org.springframework = debug (default es info)
